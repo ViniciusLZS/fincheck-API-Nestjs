@@ -7,10 +7,6 @@ export class UsersController {
 
   @Get('/me')
   me(@Request() request: any) {
-    console.log(
-      '🚀 ~ file: users.controller.ts:10 ~ UsersController ~ me ~ request:',
-      request.userId,
-    );
-    return this.usersService.getUserById('userId');
+    return this.usersService.getUserById(request.userId);
   }
 }
