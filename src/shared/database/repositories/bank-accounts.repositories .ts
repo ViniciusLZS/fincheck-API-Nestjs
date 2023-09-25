@@ -6,11 +6,19 @@ import { type Prisma } from '@prisma/client';
 export class BankAccountsRepository {
   constructor(private readonly prismaService: PrismaService) {}
 
+  findMany(createDto: Prisma.BankAccountFindManyArgs) {
+    return this.prismaService.bankAccount.findMany(createDto);
+  }
+
+  findFirst(findFirstDto: Prisma.BankAccountFindFirstArgs) {
+    return this.prismaService.bankAccount.findFirst(findFirstDto);
+  }
+
   create(createDto: Prisma.BankAccountCreateArgs) {
     return this.prismaService.bankAccount.create(createDto);
   }
 
-  findMany(createDto: Prisma.BankAccountFindManyArgs) {
-    return this.prismaService.bankAccount.findMany(createDto);
+  update(updateDto: Prisma.BankAccountUpdateArgs) {
+    return this.prismaService.bankAccount.update(updateDto);
   }
 }
